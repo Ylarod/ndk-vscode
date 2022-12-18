@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "AndroidNative",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm64",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        }
+    ],
+    "version": 4
+}
