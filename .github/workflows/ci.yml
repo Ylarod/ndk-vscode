@@ -1,0 +1,29 @@
+
+name: CI
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r25b
+          local-cache: true
+      - name: Grant execute permission
+        run: chmod +x ./build_all.sh
+      - name: Build with NDK
+        run: ./build_all.sh
+        env:
+          NDK_PATH: ${{ steps.setup-ndk.outputs.ndk-path }}
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: out
+          path: ./out
