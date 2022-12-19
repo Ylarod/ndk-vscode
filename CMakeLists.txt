@@ -13,7 +13,7 @@ if(NOT DEFINED TARGET_ARCH)
 endif()
 
 if(NOT DEFINED TARGET_API)
-    essage(FATAL_ERROR "$TARGET_API is not defined")
+    message(FATAL_ERROR "$TARGET_API is not defined")
 endif()
 
 if(NOT DEFINED NDK_PATH)
